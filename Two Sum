@@ -1,23 +1,20 @@
-class Solution
+vector<int> TwoSum(vector<int>& nums, int target)
 {
-public:
-	static  vector<int> TwoSum(vector<int>& nums, int target)
-	{
 		map<int, int> mmap;
-		auto v = new vector<int>();
+		vector<int> result;
 
 		for (int i = 0; i < nums.size(); i++)
 		{
 			auto dif = target - nums[i];
 			if (mmap.find(dif) != mmap.end())
 			{
-				v->push_back(mmap[dif]);
-				v->push_back(i);
-				return  *v;
+				result.push_back(mmap[dif]);
+				result.push_back(i);
+				return  result;
 			}
 
 			mmap[nums[i]] = i;
 		}
-		
-	}
-};
+
+		return  result;
+}

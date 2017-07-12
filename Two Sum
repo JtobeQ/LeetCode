@@ -1,0 +1,23 @@
+class Solution
+{
+public:
+	static  vector<int> TwoSum(vector<int>& nums, int target)
+	{
+		map<int, int> mmap;
+		auto v = new vector<int>();
+
+		for (int i = 0; i < nums.size(); i++)
+		{
+			auto dif = target - nums[i];
+			if (mmap.find(dif) != mmap.end())
+			{
+				v->push_back(mmap[dif]);
+				v->push_back(i);
+				return  *v;
+			}
+
+			mmap[nums[i]] = i;
+		}
+		
+	}
+};
